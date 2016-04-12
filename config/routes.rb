@@ -3,10 +3,13 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'merchants/find_all'
       get 'merchants/find'
+      get 'merchants/random'
       get 'customers/find_all'
       get 'customers/find'
       get 'customers/random'
-      get 'merchants/random'
+      get 'invoices/find_all'
+      get 'invoices/find'
+      get 'invoices/random'
 
       resources :merchants, except: [:new, :edit]
       resources :customers, except: [:new, :edit]
