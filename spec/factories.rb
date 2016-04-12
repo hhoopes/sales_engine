@@ -24,6 +24,10 @@ FactoryGirl.define do
     last_name "MyString"
   end
   factory :merchant do
-    name "MyString2"
+    name 
+  end
+
+  sequence :name do |n|
+    "name#{n}"
   end
 end
