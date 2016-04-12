@@ -1,32 +1,31 @@
 module Api
   module V1
-    class MerchantsController < ApiController
+    class CustomersController < ApiController
       respond_to :json
 
       def index
-        respond_with Merchant.all
+        respond_with Customer.all
       end
 
       def show
-        respond_with Merchant.find(params[:id])
+        respond_with Customer.find(params[:id])
       end
 
       def find
         param = params.to_a.first.first
         value = params.to_a.first.last.to_i
-
-        respond_with Merchant.find_by(param => value)
+        respond_with Customer.find_by(param => value)
       end
 
       def find_all
         param = params.to_a.first.first
         value = params.to_a.first.last
 
-        respond_with Merchant.where(param => value)
+        respond_with Customer.where(param => value)
       end
 
       def random
-        respond_with Merchant.order("RANDOM()").last
+        respond_with Customer.order("RANDOM()").last
       end
     end
   end
