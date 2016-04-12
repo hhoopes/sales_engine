@@ -17,6 +17,13 @@ module Api
 
         respond_with Merchant.find_by(param => value)
       end
+
+      def find_all
+        param = params.to_a.first.first
+        value = params.to_a.first.last
+
+        respond_with Merchant.where(param => value)
+      end
     end
   end
 end

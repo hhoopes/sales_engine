@@ -7,7 +7,7 @@ describe "Merchants API" do
     json = JSON.parse(response.body)
 
     expect(response).to be_success
-binding.pry
+
     expect(json.length).to eq(20)
     expect(json.last["name"]).to eq(Merchant.last.name)
  end
