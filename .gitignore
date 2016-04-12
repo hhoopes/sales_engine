@@ -16,3 +16,7 @@
 /config/application.yml
 # Ignore test coverage files from SimpleCov
 /coverage
+
+.DS_Store
+/lib/.DS_Store
+/lib/assets/.DS_Store
