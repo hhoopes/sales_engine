@@ -8,11 +8,6 @@ FactoryGirl.define do
   factory :transaction do
     invoice nil
   end
-  factory :invoice do
-    customer nil
-    merchant nil
-    status "MyString"
-  end
   factory :item do
     name "MyString"
     description "MyString"
