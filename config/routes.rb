@@ -25,9 +25,12 @@ Rails.application.routes.draw do
         get ":id/merchant", to: "invoice_relationships#merchant"
       end
 
-      get 'transactions/find_all'
-      get 'transactions/find'
-      get 'transactions/random'
+      namespace :transactions do
+        get 'find_all'
+        get 'find'
+        get 'random'
+        get ":id/invoice", to: "transaction_relationships#invoice"
+      end
 
       namespace :invoice_items do
         get 'find_all'
