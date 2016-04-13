@@ -18,5 +18,5 @@ describe "Merchants API" do
     expect(count).to eq(1)
     expect(json["name"]).to eq(Merchant.last.name)
     expect(json["id"]).to eq(Merchant.last.id)
- end
+  end
 end

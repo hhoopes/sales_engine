@@ -16,6 +16,6 @@ describe "Invoices API" do
     end
 
     expect(count).to eq(1)
-    expect([0,1]).to include(json["status"].to_i)
+    expect(json["status"]).to eq("shipped")
   end
 end

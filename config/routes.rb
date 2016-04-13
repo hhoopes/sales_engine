@@ -10,6 +10,12 @@ Rails.application.routes.draw do
       get 'invoices/find_all'
       get 'invoices/find'
       get 'invoices/random'
+      get 'transactions/find_all'
+      get 'transactions/find'
+      get 'transactions/random'
+      get 'invoice_items/find_all'
+      get 'invoice_items/find'
+      get 'invoice_items/random'
 
       resources :merchants, except: [:new, :edit]
       resources :customers, except: [:new, :edit]
