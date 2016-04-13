@@ -5,9 +5,6 @@ FactoryGirl.define do
     quantity 1
     unit_price 1
   end
-  factory :transaction do
-    invoice nil
-  end
   factory :item do
     name "MyString"
     description "MyString"
