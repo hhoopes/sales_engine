@@ -31,7 +31,6 @@ Rails.application.routes.draw do
       end
 
       resources :customers, only: [:index, :show] do
-
       end
 
       resources :items, only: [:index, :show] do
@@ -48,6 +47,7 @@ Rails.application.routes.draw do
       end
 
       resources :transactions, only: [:index, :show] do
+        get "/invoice", to: "transactions/invoices#show"
 
       end
 
