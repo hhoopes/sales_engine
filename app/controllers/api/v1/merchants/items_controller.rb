@@ -1,20 +1,16 @@
 module Api
   module V1
     module Merchants
-      class MerchantRelationshipsController < ApiController
+      class ItemsController < ApiController
         before_action :find_merchant
 
-        def invoices
-          respond_with @merchant.invoices
-        end
-
-        def items
+        def index
           respond_with @merchant.items
         end
 
         private
           def find_merchant
-            @merchant = Merchant.find(params[:id])
+            @merchant = Merchant.find(params[:merchant_id])
           end
       end
     end

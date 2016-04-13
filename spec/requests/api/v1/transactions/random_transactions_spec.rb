@@ -3,7 +3,6 @@ require 'rails_helper'
 describe "transactions API" do
   it "random returns a single transaction" do
     create_list(:transaction, 20)
-    transaction = Merchant.last
 
     get "/api/v1/transactions/random"
 

@@ -4,6 +4,10 @@ module Api
       def model
         Transaction
       end
+
+      def model_params
+        params.permit(:invoice_id, :result, :credit_card_number, :id, :created_by, :updated_by)
+      end
     end
   end
 end
