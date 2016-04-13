@@ -32,14 +32,11 @@ namespace :import do
   desc "Import transaction model from csv"
     task transactions: :environment do
       CSV.foreach("data/transactions.csv", headers: true) do |row|
-        if row["result"] == "success"
-          result = 0
-        elsif row["result"] == "failed"
-          result = 1
-        else
-          result = 2
-        end
-        Transaction.create(invoice_id: row["invoice_id"], result: result)
+        Transaction.create(
+          invoice_id: row["invoice_id"],
+          credit_card_number: row["credit_card_number"],
+          result: row["result"]
+        )
     end
   end
 
