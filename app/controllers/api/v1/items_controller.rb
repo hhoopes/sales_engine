@@ -1,8 +1,8 @@
 module Api
   module V1
-    class MerchantsController < ApiController
+    class ItemsController < ApiController
       def model
-        Merchant
+        Item
       end
     end
   end
