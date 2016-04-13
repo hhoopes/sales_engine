@@ -23,7 +23,6 @@ Rails.application.routes.draw do
         get ":id/items", to: "invoice_relationships#items"
         get ":id/customer", to: "invoice_relationships#customer"
         get ":id/merchant", to: "invoice_relationships#merchant"
-
       end
 
       get 'transactions/find_all'
@@ -38,9 +37,13 @@ Rails.application.routes.draw do
         get ":id/item", to: "invoice_item_relationships#item"
       end
 
-      get 'items/find_all'
-      get 'items/find'
-      get 'items/random'
+      namespace :items do
+        get 'find_all'
+        get 'find'
+        get 'random'
+        get ":id/invoice_items", to: "item_relationships#invoice_items"
+        get ":id/merchant", to: "item_relationships#merchant"
+      end
 
       resources :merchants, only: [:index, :show]
       resources :customers, only: [:index, :show]
