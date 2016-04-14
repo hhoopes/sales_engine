@@ -11,7 +11,7 @@ describe "Single merchant business intelligence" do
 
     total_revenue = json["revenue"]
 
-    expect(total_revenue).to eq(0.00)
+    expect(total_revenue).to eq("0.0")
 
   end
 
@@ -24,7 +24,7 @@ describe "Single merchant business intelligence" do
     expect(response).to be_success
     total_revenue = json["revenue"]
 
-    expect(total_revenue).to eq(3.00)
+    expect(total_revenue).to eq("3.0")
   end
 
   it "returns total revenue for a given date" do

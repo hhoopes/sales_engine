@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def price_formatted(cents)
-    cents.to_f/100
+    (cents.to_f/100).to_s
   end
 
   # def parse_dates
