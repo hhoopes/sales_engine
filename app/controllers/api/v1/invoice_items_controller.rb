@@ -8,7 +8,7 @@ module Api
       private
         def model_params
           convert_unit_price
-          params.permit(:id, :name, :description, :quantity, :unit_price, :created_at, :updated_at, :item_id)
+          params.permit(:id, :name, :description, :quantity, :unit_price, :created_at, :updated_at, :invoice_id, :item_id)
         end
     end
   end
