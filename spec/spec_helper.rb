@@ -51,6 +51,21 @@ RSpec.configure do |config|
     invoice.merchant
   end
 
+  def create_3_invoiced_items
+    3.times do
+      Item.create
+    end
+
+    Item.all.each_with_index do |item, index|
+      invoice = Invoice.create
+      invoice.invoice_items << InvoiceItem.create(
+                                        item_id: item.id,
+                                        quantity: index +1,
+                                        unit_price: 100,)
+      invoice.transactions << Transaction.create(result: "success")
+    end
+  end
+
   # def merchant_with_invoice_items
   #   invoice = create(:invoice, created_at: two_weeks_ago)
   #   invoice.invoice_items << create(:invoice_item, unit_price: 100)

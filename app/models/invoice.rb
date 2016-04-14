@@ -19,6 +19,8 @@ class Invoice < ActiveRecord::Base
     .sum("quantity * unit_price")
   end
 
+  
+
   def format(num)
     num.to_f / 100
   end
