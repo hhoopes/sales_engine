@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       get '/merchants/find_all', to: "merchants#index"
       get '/merchants/find', to: "merchants#show"
       get '/merchants/random', to: "merchants/random#show"
+      get "/merchants/most_revenue", to: "merchants/most_revenue#index"
+      get "/merchants/most_items", to: "merchants/most_items#index"
+      get "/merchants/revenue", to: "merchants/revenue#index"
 
       get '/customers/find_all', to: "customers#index"
       get '/customers/find', to: "customers#show"
@@ -32,6 +35,7 @@ Rails.application.routes.draw do
         get "/items", to: "merchants/items#index"
         get "/invoices", to: "merchants/invoices#index"
         get "/revenue", to: "merchants/revenue#show"
+        get "/favorite_customer", to: "merchants/favorite_customer#show"
       end
 
       resources :customers, only: [:index, :show] do

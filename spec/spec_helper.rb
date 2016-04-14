@@ -45,9 +45,19 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  def merchant_with_invoice_items
+  def merchant_with_invoice_items(unit_price = 100)
     invoice = create(:invoice_with_transactions)
-    invoice.invoice_items << create(:invoice_item, unit_price: 100, quantity: 1)
+    invoice.invoice_items << create(:invoice_item,
+                            unit_price: unit_price,
+                            quantity: 1)
+    invoice.merchant
+  end
+
+  def merchant_with_number_invoice_items(quantity = 1)
+    invoice = create(:invoice_with_transactions)
+    invoice.invoice_items << create(:invoice_item,
+                            unit_price: 100,
+                            quantity: quantity)
     invoice.merchant
   end
 
@@ -65,11 +75,4 @@ RSpec.configure do |config|
       invoice.transactions << Transaction.create(result: "success")
     end
   end
-
-  # def merchant_with_invoice_items
-  #   invoice = create(:invoice, created_at: two_weeks_ago)
-  #   invoice.invoice_items << create(:invoice_item, unit_price: 100)
-  #   invoice.merchant.invoices << create(:invoice, created_at: one_week_ago)
-  #
-  # end
 end
