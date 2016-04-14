@@ -6,7 +6,7 @@ module Api
       end
 
       def model_params
-        params.permit(:customer_id, :merchant_id, :status, :created_by, :updated_by, :id)
+        params.permit(:customer_id, :merchant_id, :status, :created_at, :updated_at, :id)
       end
     end
   end

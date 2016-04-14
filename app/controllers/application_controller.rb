@@ -6,4 +6,11 @@ class ApplicationController < ActionController::Base
   def price_formatted(cents)
     cents.to_f/100
   end
+
+  # def parse_dates
+  #   date_params = [:created_at, :updated_at, :date]
+  #   date_params.each do | param |
+  #     params[param] = Date.parse(params[param]) if params[param]
+  #   end
+  # end
 end

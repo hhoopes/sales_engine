@@ -46,6 +46,15 @@ RSpec.configure do |config|
   end
 
   def merchant_with_invoice_items
-
+    invoice = create(:invoice_with_transactions)
+    invoice.invoice_items << create(:invoice_item, unit_price: 100, quantity: 1)
+    invoice.merchant
   end
+
+  # def merchant_with_invoice_items
+  #   invoice = create(:invoice, created_at: two_weeks_ago)
+  #   invoice.invoice_items << create(:invoice_item, unit_price: 100)
+  #   invoice.merchant.invoices << create(:invoice, created_at: one_week_ago)
+  #
+  # end
 end

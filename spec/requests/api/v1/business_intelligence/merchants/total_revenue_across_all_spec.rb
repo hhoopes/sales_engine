@@ -16,9 +16,7 @@ describe "Single merchant business intelligence" do
   end
 
   it "returns total revenue for a given merchant" do
-    invoice = create(:invoice)
-    invoice.invoice_items << create(:invoice_item, unit_price: 100)
-    merchant = invoice.merchant
+    merchant = merchant_with_invoice_items
 
     get "/api/v1/merchants/#{merchant.id}/revenue"
 
@@ -26,6 +24,10 @@ describe "Single merchant business intelligence" do
     expect(response).to be_success
     total_revenue = json["revenue"]
 
-    expect(total_revenue).to eq(1.00)
+    expect(total_revenue).to eq(3.00)
+  end
+
+  it "returns total revenue for a given date" do
+    # merchant_with_different_dates
   end
 end

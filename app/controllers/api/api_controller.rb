@@ -2,6 +2,7 @@ module Api
   class ApiController < ApplicationController
     protect_from_forgery with: :null_session
     respond_to :json
+    # before_action :parse_dates
 
     def index
       if params.empty?
@@ -18,7 +19,7 @@ module Api
     private
       def convert_unit_price
         if params[:unit_price]
-         params[:unit_price] = (params[:unit_price] * 100.0).round
+         params[:unit_price] = (params[:unit_price].to_f * 100.0).round
         end
       end
   end
