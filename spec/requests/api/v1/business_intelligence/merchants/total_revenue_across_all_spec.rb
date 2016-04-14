@@ -27,7 +27,14 @@ describe "Single merchant business intelligence" do
     expect(total_revenue).to eq("3.0")
   end
 
-  it "returns total revenue for a given date" do
-    # merchant_with_different_dates
+  it "returns the customer with most successful transactions" do
+    merchant = merchant_with_invoice_items
+    merchant2 = merchant_with_invoice_items
+
+    get "/api/v1/merchants/#{merchant.id}/favorite_customer"
+
+    json = JSON.parse(response.body)
+    expect(response).to be_success
+
   end
 end

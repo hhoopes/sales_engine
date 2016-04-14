@@ -22,16 +22,15 @@ class Item < ActiveRecord::Base
     .take(quantity)
   end
 
-  # def self.best_day(item_id)
-  #   result =
-  #   select("invoices.created_at, sum(invoice_items.quantity) AS total")
-  #   .joins(:invoices)
-  #   .joins(:transactions).where("result = 'success'")
-  #   .order("total DESC")
-  #   .group("invoices.created_at")
-  #   .where(id: item_id)
-  #   .take(1)
-  #
-  #   result.first[:created_at]
-  # end
+  def self.best_day(item_id)
+    result =
+    select("invoices.created_at, sum(invoice_items.quantity) AS total")
+    .joins(:invoices)
+    .order("total DESC")
+    .group("invoices.created_at")
+    .where(id: item_id)
+    .take(1)
+
+    result.first[:created_at]
+  end
 end
