@@ -14,5 +14,12 @@ module Api
     def show
       respond_with model.find_by(model_params)
     end
+
+    private
+      def convert_unit_price
+        if params[:unit_price]
+         params[:unit_price] = (params[:unit_price] * 100.0).round
+        end
+      end
   end
 end
