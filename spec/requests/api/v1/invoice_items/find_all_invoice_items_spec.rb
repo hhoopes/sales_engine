@@ -10,7 +10,7 @@ describe "InvoiceItems API" do
     end
     invoice_item = InvoiceItem.last
 
-    expect(InvoiceItem.count).to eq(7)
+    expect(invoice_item.quantity).to eq(10)
 
     get "/api/v1/invoice_items/find_all?quantity=#{invoice_item.quantity}"
     json = JSON.parse(response.body)

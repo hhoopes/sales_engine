@@ -11,6 +11,6 @@ describe "InvoiceItems API" do
 
     expect(json.count).to eq(20)
     expect(json.last["quantity"]).to eq(InvoiceItem.last.quantity)
-    expect(json.last["unit_price"]).to eq(InvoiceItem.last.unit_price)
+    expect(json.last["unit_price"]).to eq((InvoiceItem.last.unit_price.to_f/100).to_s)
   end
 end

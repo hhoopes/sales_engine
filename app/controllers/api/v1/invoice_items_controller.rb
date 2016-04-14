@@ -5,9 +5,11 @@ module Api
         InvoiceItem
       end
 
-      def model_params
-        params.permit(:item_id, :invoice_id, :quantity, :unit_price, :id, :created_by, :updated_by)
-      end
+      private
+        def model_params
+          convert_unit_price
+          params.permit(:id, :name, :description, :quantity, :unit_price, :created_at, :updated_at, :item_id)
+        end
     end
   end
 end
